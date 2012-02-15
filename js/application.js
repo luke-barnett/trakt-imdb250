@@ -143,7 +143,7 @@ $(document).ready(function() {
 	else
 	{
 		var notification = $('<div></div>');
-		notification.attr('class','alert-message error');
+		notification.attr('class','alert alert-error');
 		var message = $('<p></p>').append($('<strong></strong>').append("Oh Snap!"));
 		message.append(' API KEY IS MISSING.');
 		notification.append(message);
@@ -217,7 +217,7 @@ function processTraktCollection(traktMovies){
 	if(traktMovies.length == 0)
 	{
 		var notification = $('<div></div>');
-		notification.attr('class','alert-message warning');
+		notification.attr('class','alert alert-block');
 		var message = $('<p></p>').append($('<strong></strong>').append("Oh dear!"));
 		message.append(' Your collection is empty. This is normally caused by a <a href="http://trakt.tv/settings/account" target="_blank">private profile</a>. (You can always change it back later)');
 		notification.append(message);
@@ -266,7 +266,7 @@ function getIMDB250(){
 		},
 		error : function() {
 			var notification = $('<div></div>');
-			notification.attr('class','alert-message error');
+			notification.attr('class','alert alert-error');
 			var message = $('<p></p>').append($('<strong></strong>').append("Oh Snap!"));
 			message.append(' Failed to retrieve IMDB 250.');
 			notification.append(message);
