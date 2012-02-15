@@ -1,0 +1,24 @@
+#footer {
+  margin-top: 80px;
+}
+#footer p {
+  margin-bottom: 0;
+}
+#footer p.right {
+  float: right;
+}
+
+.icon {
+	font-family: Arial Unicode MS, Lucida Grande;
+	text-align: center;
+	padding-left: auto;
+	padding-right: auto;
+}
+
+.tick {
+	color: #00FF00;
+}
+
+.cross {
+	color: #FF0000;
+}

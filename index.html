@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Trakt IMDB250 Progress</title>
+		<meta name="description" content="Shows your progress on the imdb250 based on your trakt library">
+		<meta name="author" content="Luke Barnett">
+	
+		<!--[if lt IE 9]>
+		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="css/traktimdb250.css" rel="stylesheet">
+		
+		<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+		<script src="js/jquery.tablesorter.min.js"></script>
+		<script src="js/crypto-sha1.js"></script>
+		<script src="js/application.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<section id="notificationbar" style="display: none">
+				<div class="row">
+					<div class="span16 columns" id="notification">
+						
+					</div>
+				</div>
+			</section>
+			<section id="logOutPanel" style="display: none">
+				<div class="page-header">
+					<h1>Your IMDB 250 progress</h1>
+				</div>
+				<div class="row">
+					<div class="span16 columns">
+						<p>Logged in as <span id="usernameDisplay"></span> <button class="btn primary" id="btnLogOut">Log Out</button> <button class="btn" id="btnRefresh">Refresh</button> </p>
+					</div>
+				</div>
+			</section>
+			<section id="loadingimdb250" style="display: none">
+				<div class="page-header">
+					<h1>Loading IMDB 250...</h1>
+				</div>
+				<div class="row">
+					<div class="span4 columns">
+						<p>Attempting to retrieve <a href="http://www.imdb.com/chart/top" target="_blank">IMDB 250</a></p>
+					</div>
+					<div class="span10 columns offset2">
+						<img class="loginloader" src="img/ajax-loader.gif" alt="ajax loader" title="ajax loader">
+					</div>
+				</div>
+			</section>
+			<section id="loadingTraktCollection" style="display: none">
+				<div class="page-header">
+					<h1>Loading Trakt Collection...</h1>
+				</div>
+				<div class="row">
+					<div class="span4 columns">
+						<p>Attempting to retrieve your <a href="http://www.trakt.tv" target="_blank">Trakt</a> collection</p>
+					</div>
+					<div class="span10 columns offset2">
+						<img class="loginloader" src="img/ajax-loader.gif" alt="ajax loader" title="ajax loader">
+					</div>
+				</div>
+			</section>
+			<section id="traktlogin">
+				<div class="page-header">
+					<h1>Trakt Details</h1>
+				</div>
+				<div class="row">
+					<div class="span4 columns">
+						<h2>Trakt details</h2>
+						<p>We need your Trakt username to retrieve your collection.</p>
+						<p>Note: Your profile needs to be public.</p>
+					</div>
+					<div class="span12 columns">
+						<form id="inputForm">
+							<fieldset>
+								<div class="clearfix"  id="usernameWrapper">
+									<label for="traktusername">Trakt Username</label>
+									<div class="input">
+										<input class="xlarge" id="traktusername" name="traktusername" size="40" type="text" />
+										<span id="usernameHelp" class="help-inline"  style="display: none">Username cannot be empty</span>
+									</div>
+								</div>
+								<div class="actions">
+									<input type="button" class="btn primary" id="btnTraktLogin" value="Login">&nbsp;<input type="button" class="btn" id="btnTraktClear" value="Clear">
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</section>
+			<section id="accountdetails" style="display: none">
+				<div class="page-header">
+					<h1>Account Details</h1>
+				</div>
+			</section>
+			<section id="nextMovieCollection" style="display: none">
+				<div class="row">
+					<div class="span4 columns">
+						<h2>Your Next Movie From Your Collection</h2>
+						<p>Based on watched status and collection</p>
+					</div>
+					<div class="span12 columns" id="nextMovieCollectionDetails">
+					</div>
+				</div>
+			</section>
+			<section id="nextMovie" style="display: none">
+				<div class="row">
+					<div class="span4 columns">
+						<h2>Your Next Movie</h2>
+						<p>Based on watched status</p>
+					</div>
+					<div class="span12 columns" id="nextMovieDetails">
+					</div>
+				</div>
+			</section>
+			<section id="imdb250" style="display: none">
+				<div class="page-header">
+					<h1>IMDB 250</h1>
+				</div>
+				<div class="row">
+					<div class="span12 columns">
+						<table class="table table-striped" id="moviesTable">
+							<thead>
+								<tr>
+									<th>Rank</th>
+									<th>Title</th>
+									<th>Rating</th>
+									<th>Watched</th>
+									<th>Collection</th>
+								</tr>
+							</thead>
+							<tbody  id="movies">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div id="footer">
+			<div class="inner">
+				<div class="container">
+					<p class="right"><a href="#">Back to top</a></p>
+					<p>
+						Built with love by <a href="http://luke.barnett.net.nz" target="_blank">Luke Barnett</a><br />
+						Thanks to the team at <a href="http://trakt.tv">Trakt</a> and <a href="http://www.imdb.com" target="_blank">IMDB</a> for the two amazing services that made this possible<br />
+						Built on <a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap, from Twitter</a><br />
+						Fork me on <a href="https://github.com/Technicolour/trakt-imdb250" target="_blank">Github!</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>	
