@@ -3,9 +3,10 @@ var _imdb250 = new Array();
 var _loggedIn = false;
 var _username;
 
-function Movie(imdbid, title, rank, rating){
+function Movie(imdbid, title, year, rank, rating){
 	var _imdbid = imdbid;
 	var _title = title;
+    var _year = year;
 	var _rank = rank;
 	var _rating = rating;
 	var _watched = false;
@@ -19,6 +20,10 @@ function Movie(imdbid, title, rank, rating){
 	
 	this.Title = function(){
 		return _title;
+	}
+    
+    this.Year = function(){
+		return _year;
 	}
 	
 	this.Rank = function(){
@@ -73,6 +78,7 @@ function Movie(imdbid, title, rank, rating){
 		root = $('<tr></tr>');
 		root.append('<td>'+this.Rank()+'</td>');
 		root.append('<td>'+this.LinkedTitle()+'</td>');
+        root.append('<td>'+this.Year()+'</td>');
 		root.append('<td>'+this.Rating()+'</td>');
 		root.append('<td>'+this.WatchedString()+'</td>');
 		root.append('<td>'+this.CollectionString()+'</td>');
@@ -259,7 +265,7 @@ function getIMDB250(){
 		dataType: "json",
 		success: function(movies) {
 			$.each(movies, function(key, value) {
-				_imdb250.push(new Movie(value.imdbid,value.title,value.rank,value.rating));
+				_imdb250.push(new Movie(value.imdbid,value.title,value.year,value.rank,value.rating));
 			});
 			enableLoginButtons();
 			$("#loadingimdb250").slideUp(1000);
