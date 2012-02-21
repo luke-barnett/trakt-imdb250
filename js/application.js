@@ -168,7 +168,7 @@ $(document).ready(function() {
 	{
 		var notification = $('<div></div>');
 		notification.attr('class','alert alert-error');
-		var message = $('<p></p>').append($('<strong></strong>').append("Oh Snap!"));
+		var message = $('<span></span>').append($('<strong></strong>').append("Oh Snap!"));
 		message.append(' API KEY IS MISSING.');
 		notification.append(message);
 		$("#notification").append(notification);
@@ -204,6 +204,8 @@ function checkLogin(){
 	if(!$("btnTraktLogin").is('disabled'))
 	{
 		disableLoginButtons();
+		$("#notificationbar").slideUp(1000);
+		$("#notification").empty();
 		$("#loginloader").show();
 		_username = $("#traktusername").val();
 		_loggedIn = true;
@@ -222,15 +224,24 @@ function getTraktCollection(traktUsername){
 		url: 'http://api.trakt.tv/user/library/movies/all.json/'+ API_KEY +'/' + traktUsername,
 		type: 'GET',
 		dataType: 'jsonp',
+		timeout : 10000,
 		success: function(response) { processTraktCollection(response); },
 		error: function() {
 			var notification = $('<div></div>');
-			notification.attr('class','alert-message error');
-			var message = $('<p></p>').append($('<strong></strong>').append("Oh Snap!"));
+			notification.attr('class','alert alert-error');
+			var message = $('<span></span>').append($('<strong></strong>').append("Oh Snap!"));
 			message.append(' Failed to get movie collection from Trakt.');
 			notification.append(message);
 			$("#notification").append(notification);
 			$("#notificationbar").slideDown(1000);
+			_loggedIn = false;
+			enableLoginButtons();
+			$('#logOutPanel').slideUp(1000);
+			$('#nextMovie').slideUp(1000);
+			$('#nextMovieCollection').slideUp(1000);
+			$('#loadingTraktCollection').slideUp(1000);
+			$("#imdb250").hide();
+			$('#traktlogin').slideDown(1000);
 		}
 	});
 }
@@ -242,7 +253,7 @@ function processTraktCollection(traktMovies){
 	{
 		var notification = $('<div></div>');
 		notification.attr('class','alert alert-block');
-		var message = $('<p></p>').append($('<strong></strong>').append("Oh dear!"));
+		var message = $('<span></span>').append($('<strong></strong>').append("Oh dear!"));
 		message.append(' Your collection is empty. This is normally caused by a <a href="http://trakt.tv/settings/account" target="_blank">private profile</a>. (You can always change it back later)');
 		notification.append(message);
 		$("#notification").empty();
@@ -291,7 +302,7 @@ function getIMDB250(){
 		error : function() {
 			var notification = $('<div></div>');
 			notification.attr('class','alert alert-error');
-			var message = $('<p></p>').append($('<strong></strong>').append("Oh Snap!"));
+			var message = $('<span></span>').append($('<strong></strong>').append("Oh Snap!"));
 			message.append(' Failed to retrieve IMDB 250.');
 			notification.append(message);
 			$("#notification").append(notification);
