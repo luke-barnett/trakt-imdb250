@@ -145,6 +145,24 @@ $(document).ready(function() {
 	if(API_KEY != "")
 	{
 		getIMDB250();
+		
+		var urlParams = {};
+		(function () {
+			var e,
+			a = /\+/g,  // Regex for replacing addition symbol with a space
+			r = /([^&=]+)=?([^&]*)/g,
+			d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
+			q = window.location.search.substring(1);
+			while (e = r.exec(q))
+				urlParams[d(e[1])] = d(e[2]);
+		})();
+		
+		var urlPassedUsername = urlParams["traktusername"];
+		if(urlPassedUsername != "")
+		{
+			$("#traktusername").val(urlPassedUsername);
+			checkLogin();
+		}
 	}
 	else
 	{
@@ -336,4 +354,15 @@ function getIMDB250Progress(){
 	var watchedPercentage = (watchedCount / 250 * 100);
 	root.append('You have watched ' + watchedCount + ' of the IMDB 250 (' + Math.round(watchedPercentage * 10) / 10 + '%)');
 	return root;
+}
+
+function getParameterByName(name){
+	name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+	var regexS = "[\\?&]" + name + "=([^&#]*)";
+	var regex = new RegExp(regexS);
+	var results = regex.exec(window.location.search);
+	if(results == null)
+		return "";
+	else
+		return +(results[1].replace(/\+/g, " "));
 }
