@@ -158,7 +158,7 @@ $(document).ready(function() {
 		})();
 		
 		var urlPassedUsername = urlParams["traktusername"];
-		if(urlPassedUsername != "")
+		if(urlPassedUsername != undefined)
 		{
 			$("#traktusername").val(urlPassedUsername);
 			checkLogin();
