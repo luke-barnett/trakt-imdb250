@@ -1,0 +1,8 @@
+﻿{
+  "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
+  "webJobName": "TrakIMDB250-Scraper",
+  "startTime": "2015-06-15T00:00:00+12:00",
+  "jobRecurrenceFrequency": "Minute",
+  "interval": 62,
+  "runMode": "Scheduled"
+}
