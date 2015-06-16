@@ -16,9 +16,7 @@ namespace TrakIMDB250.Scraper
 						.Select(connectionString => connectionString.Name)))
 				);
 
-			var config = new JobHostConfiguration();
-
-			var host = new JobHost(config);
+			var host = new JobHost();
 
 			host.Call(typeof(Functions).GetMethod("ScrapeIMDB250"));
 		}

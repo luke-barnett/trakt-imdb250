@@ -17,7 +17,7 @@ namespace TrakIMDB250.Scraper
 		[NoAutomaticTrigger]
 		public async static Task ScrapeIMDB250(TextWriter log)
 		{
-			await log.WriteLineAsync("[{0}] Starting scrapping of IMDB Top 250");
+			await Log(log, "Starting scrapping of IMDB Top 250");
 
 			var html = new HtmlWeb().Load("http://www.imdb.com/chart/top");
 
@@ -25,7 +25,7 @@ namespace TrakIMDB250.Scraper
 
 			var movies = GetMovies(chartTable).OrderBy(movie => movie.Rank);
 
-			await log.WriteLineAsync("[{0}] Got movies");
+			await Log(log, "Got movies");
 
 			var storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["Storage"].ConnectionString);
 
@@ -44,7 +44,12 @@ namespace TrakIMDB250.Scraper
 
 			await jsonblob.UploadTextAsync(JsonConvert.SerializeObject(movies, Formatting.Indented));
 
-			await log.WriteLineAsync("[{0}] Written to blob storage");
+			await Log(log, "Written to blob storage");
+		}
+
+		static async Task Log(TextWriter log, string message)
+		{
+			await log.WriteLineAsync(string.Format("[{0}] {1}", DateTimeOffset.Now, message));
 		}
 
 		static IEnumerable<Movie> GetMovies(HtmlNode chartTable)
