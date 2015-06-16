@@ -113,23 +113,125 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\javascript\infrastructure\api.js" />
+    <Content Include="assets\javascript\infrastructure\bindings.js" />
+    <Content Include="assets\javascript\infrastructure\config.js" />
+    <Content Include="assets\javascript\vendor\bootstrap-sass\assets\javascripts\bootstrap.js" />
+    <Content Include="assets\javascript\vendor\jquery\dist\jquery.js" />
+    <Content Include="assets\javascript\vendor\knockout-mapping\knockout.mapping.js" />
+    <Content Include="assets\javascript\vendor\knockout\dist\knockout.js" />
+    <Content Include="assets\javascript\vendor\moment\moment.js" />
+    <Content Include="assets\javascript\vendor\requirejs\require.js" />
+    <Content Include="assets\javascript\vendor\text\text.js" />
+    <Content Include="assets\javascript\vendor\underscore\underscore.js" />
+    <Content Include="assets\javascript\views\home\index.js" />
+    <Content Include="assets\stylesheets\main.css" />
     <Content Include="Global.asax" />
+    <Content Include="gulpfile.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\IMDBController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Constants.cs" />
+    <Compile Include="Infrastructure\HtmlHelperExtensions.cs" />
+    <Compile Include="Models\ScriptsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Properties\webjobs-list.json" />
+    <Content Include="bower.json" />
+    <Content Include="package.json" />
+    <Content Include="assets\stylesheets\main.scss" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_alerts.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_buttons.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_center-block.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_forms.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_gradients.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_grid.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_hide-text.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_image.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_labels.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_list-group.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_nav-vertical-align.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_opacity.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_pagination.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_panels.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_progress-bar.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_resize.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_responsive-visibility.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_size.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_table-row.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_text-overflow.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_vendor-prefixes.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_alerts.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_badges.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_breadcrumbs.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_button-groups.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_buttons.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_carousel.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_close.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_code.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_component-animations.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_dropdowns.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_forms.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_glyphicons.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_grid.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_input-groups.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_jumbotron.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_labels.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_list-group.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_media.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_mixins.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_modals.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_navbar.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_navs.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_normalize.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_pager.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_pagination.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_panels.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_popovers.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_print.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_progress-bars.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_responsive-embed.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_responsive-utilities.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_scaffolding.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_tables.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_theme.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_thumbnails.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_tooltip.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_type.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_utilities.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_variables.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\bootstrap\_wells.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\_bootstrap-compass.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\_bootstrap-mincer.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\_bootstrap-sprockets.scss" />
+    <Content Include="assets\stylesheets\vendor\bootstrap-sass\assets\stylesheets\_bootstrap.scss" />
+    <Content Include="assets\stylesheets\main.css.map" />
     <None Include="Properties\PublishProfiles\traktimdb250.pubxml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Scripts.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -139,8 +241,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

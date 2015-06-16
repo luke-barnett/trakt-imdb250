@@ -1,0 +1,27 @@
+{
+  "name": "TraktIMDB250.Web",
+  "version": "1.0.0",
+  "homepage": "https://github.com/luke-barnett/trakt-imdb250",
+  "private": true,
+  "authors": [
+    "Luke Barnett <luke@barnett.net.nz>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.4",
+    "knockout": "~3.3.0",
+    "underscore": "~1.8.3",
+    "requirejs": "~2.1.18",
+    "jquery": "~2.1.4",
+    "moment": "~2.10.3",
+    "text": "~2.0.14",
+    "knockout-mapping": "~2.4.1"
+  }
+}

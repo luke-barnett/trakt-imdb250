@@ -1,0 +1,20 @@
+﻿@model ScriptsModel
+
+<script type="text/javascript">
+	var version = "@HtmlHelperExtensions.SiteVersion";
+	var json = @Html.Raw(Json.Encode(Model.JSON));
+</script>
+
+@Html.IncludeVersionedJS("/assets/javascript/vendor/requirejs/require.js")
+@Html.IncludeVersionedJS("/assets/javascript/infrastructure/config.js")
+
+<script type="text/javascript">
+	@Html.Raw("requirejs(['bootstrap']);")
+
+	@if (Model.Scripts != null)
+	{
+		@Html.Raw("requirejs(['")
+		@Html.Raw(string.Join("', '", Model.Scripts))
+		@Html.Raw("']);")
+	}
+</script>

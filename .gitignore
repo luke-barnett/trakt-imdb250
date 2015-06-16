@@ -206,3 +206,5 @@ FakesAssemblies/
 *.opt
 
 connections.config
+TraktIMDB250.Web/assets/stylesheets/main.css
+TraktIMDB250.Web/assets/stylesheets/main.css.map
