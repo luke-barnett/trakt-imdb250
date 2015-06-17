@@ -13,7 +13,7 @@
 		});
 
 		_vm.trakturl = ko.computed(function () {
-			return 'http://trakt.tv/search?id_type=imdb&id=' + ko.unwrap(_vm.IMDBId);
+			return 'http://trakt.tv/search/imdb/' + ko.unwrap(_vm.IMDBId);
 		})
 
 		return _vm;
