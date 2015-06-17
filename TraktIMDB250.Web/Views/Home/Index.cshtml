@@ -4,3 +4,36 @@
 		"views/home/index"
 	};
 }
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 form-inline">
+			<div class="form-group">
+				<label class="sr-only" for="exampleInputEmail3">Trakt Username</label>
+				<input type="text" class="form-control" placeholder="trakt username" data-bind="value: traktUsername">
+			</div>
+			<button class="btn btn-primary" data-bind="click: getWatched">Get watched</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>Rank</td>
+						<td>Name</td>
+						<td>Year</td>
+						<td>Watched</td>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach: orderedMovies">
+					<tr>
+						<td data-bind="text: Rank"></td>
+						<td data-bind="text: Name"></td>
+						<td data-bind="text: Year"></td>
+						<td data-bind="text: watched"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

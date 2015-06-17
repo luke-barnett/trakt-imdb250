@@ -124,6 +124,7 @@
     <Content Include="assets\javascript\vendor\requirejs\require.js" />
     <Content Include="assets\javascript\vendor\text\text.js" />
     <Content Include="assets\javascript\vendor\underscore\underscore.js" />
+    <Content Include="assets\javascript\viewModels\movieViewModel.js" />
     <Content Include="assets\javascript\views\home\index.js" />
     <Content Include="assets\stylesheets\main.css" />
     <Content Include="Global.asax" />
@@ -132,12 +133,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\IMDBController.cs" />
+    <Compile Include="API\TraktController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Configuration.cs" />
     <Compile Include="Infrastructure\Constants.cs" />
     <Compile Include="Infrastructure\HtmlHelperExtensions.cs" />
     <Compile Include="Models\ScriptsModel.cs" />
