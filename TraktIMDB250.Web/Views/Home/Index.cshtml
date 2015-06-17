@@ -9,9 +9,15 @@
 		<div class="col-md-12 form-inline">
 			<div class="form-group">
 				<label class="sr-only" for="exampleInputEmail3">Trakt Username</label>
-				<input type="text" class="form-control" placeholder="trakt username" data-bind="value: traktUsername">
+				<input type="text" class="form-control" placeholder="trakt username" data-bind="initialisedValue: traktUsername, valueUpdate: 'afterkeydown', enterkey: getWatched" value="@ViewBag.Username">
 			</div>
 			<button class="btn btn-primary" data-bind="click: getWatched">Get watched</button>
+			<a class="btn btn-link" href="/">Reset</a>
+		</div>
+	</div>
+	<div class="row" data-bind="visible: unwatchedMovies().length">
+		<div class="col-md-12 form-inline">
+			<h3>You've watched <span data-bind="text: watchedPercentage.formatted"></span> of the IMDB 250</h3>
 		</div>
 	</div>
 	<div class="row">
@@ -26,11 +32,11 @@
 					</tr>
 				</thead>
 				<tbody data-bind="foreach: orderedMovies">
-					<tr>
+					<tr data-bind="css: { watched: watched }">
 						<td data-bind="text: Rank"></td>
-						<td data-bind="text: Name"></td>
+						<td><a data-bind="text: Name, attr: { href: imdburl }"></a></td>
 						<td data-bind="text: Year"></td>
-						<td data-bind="text: watched"></td>
+						<td data-bind="tickicon: watched"></td>
 					</tr>
 				</tbody>
 			</table>

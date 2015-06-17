@@ -1,3 +1,7 @@
 ﻿$icon-font-path: "/assets/fonts/";
 
 @import "vendor/bootstrap-sass/assets/stylesheets/bootstrap.scss";
+
+.watched {
+	opacity: 0.5;
+}
