@@ -25,7 +25,7 @@
 		var unwatchedCount = ko.unwrap(_vm.unwatchedMovies).length;
 		var moviesCount = ko.unwrap(_vm.top250movies).length;
 
-		return unwatchedCount / moviesCount;
+		return (moviesCount - unwatchedCount) / moviesCount;
 	});
 
 	_vm.watchedPercentage.formatted = ko.computed(function () {
