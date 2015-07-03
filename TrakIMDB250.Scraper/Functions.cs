@@ -54,17 +54,23 @@ namespace TrakIMDB250.Scraper
 
 		static IEnumerable<Movie> GetMovies(HtmlNode chartTable)
 		{
-			foreach (var row in chartTable.SelectNodes(".//tr").Skip(1))
+			foreach (var row in chartTable.SelectNodes(".//tbody/tr"))
 			{
-				var title = row.SelectSingleNode("td[@class='titleColumn']");
-				var rankSpan = title.SelectSingleNode("span[@name='ir']");
-				var seenWidget = row.SelectSingleNode("td/span[@name='ur']/div");
+				var posterColumn = row.SelectSingleNode("td[@class='posterColumn']");
+				var rankSpan = posterColumn.SelectSingleNode("span[@name='rk']");
+				var ratingSpan = posterColumn.SelectSingleNode("span[@name='ir']");
 
-				var name = title.SelectSingleNode("a").InnerText;
-				var rank = int.Parse(new string(rankSpan.InnerText.Take(rankSpan.InnerText.Count() - 1).ToArray()));
-				var rating = decimal.Parse(rankSpan.GetAttributeValue("data-value", "0"));
+				var titleColumn = row.SelectSingleNode("td[@class='titleColumn']");
+				var yearSpan = titleColumn.SelectSingleNode("span[@class='secondaryInfo']");
+
+				var ratingColumn = row.SelectSingleNode("td[@class='ratingColumn']");
+				var seenWidget = ratingColumn.SelectSingleNode("div");
+
+				var name = titleColumn.SelectSingleNode("a").InnerText;
+				var rank = int.Parse(rankSpan.GetAttributeValue("data-value", "0"));
+				var rating = decimal.Parse(ratingSpan.GetAttributeValue("data-value", "0"));
 				var imdbid = seenWidget.GetAttributeValue("data-titleid", string.Empty);
-				var releaseDate = DateTime.Parse(title.SelectSingleNode("span[@name='rd']").GetAttributeValue("data-value", string.Empty));
+				var year = int.Parse(new string(yearSpan.InnerText.Skip(1).Take(4).ToArray()));
 
 				yield return new Movie
 				{
@@ -72,7 +78,7 @@ namespace TrakIMDB250.Scraper
 					Rank = rank,
 					Rating = rating,
 					IMDBId = imdbid,
-					ReleaseDate = releaseDate
+					Year = year
 				};
 			}
 		}

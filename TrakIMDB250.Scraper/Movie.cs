@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TrakIMDB250.Scraper
+﻿namespace TrakIMDB250.Scraper
 {
 	public class Movie
 	{
@@ -10,9 +8,7 @@ namespace TrakIMDB250.Scraper
 
 		public string Name { get; set; }
 
-		public DateTime ReleaseDate { get; set; }
-
-		public int Year { get { return ReleaseDate.Year; } }
+		public int Year { get; set; }
 
 		public decimal Rating { get; set; }
 	}
